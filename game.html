@@ -1,0 +1,114 @@
+<html>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<link rel = "stylesheet"
+		href = "style.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!-- 		<nav></nav><a href="index.html">Anasayfa</a> -->
+		<div class="keys">	
+		<div data-key="13" class="startkey">
+		<kbd>ENTER</kbd>
+		<span class="sound">BAŞLAT</span>	</div>
+		<div data-key="27" class="startkey" >
+		<kbd>ESC</kbd>
+		<span class="sound">ÇIKIŞ</span>	
+		</div>	
+	</div>					 
+	</head>
+	<body background="source/background2.jpg">	
+
+
+		<div class="container" >
+				<div class="row">
+				  <div class="col-sm-6">
+
+								<div class="col-sm-6" style="margin-top: 56px">
+										<img src="source/player.png" style="width: 242px"></img>
+										<div id="health-bar2" data-total="1000" data-value="1000">
+												<div id="bar2">
+													  <div id="hit2"></div>
+												</div>
+											  </div>
+											  <br>
+					</div>
+					<div class="col-sm-6">
+							<h3>STATÜLERİM</h3>
+							<table class="cinereousTable">
+									<thead>
+									<tr>
+									<th>STATÜ</th>
+									<th>DEĞER</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+									<td>HP:</td><td><a id="hpinf"></a></td></tr>
+									<tr>
+									<td>STR:</td><td><a id="strinf"></td></tr>
+									<tr>
+									<td>DP:</td><td><a id="dpinf"></a></td></tr>
+									</tbody>
+									</tr>
+									</table>
+									<table class="cinereousTable">
+											<tbody>
+											<tr>
+											<td>
+													<p>Dağıtabilecek statü sayısı: <a id="statinfo"></a></p>
+													<p id="notstat"></p>
+											</td>
+											</tr>
+											</tbody>
+											</table>
+
+						</div>
+
+							<div class="row">
+							<div class="col-sm-12">
+							<div class="keys">
+								<div data-key="81" class="key">
+								  <kbd>Q</kbd>
+								  <span class="sound">+HP</span>
+								</div>
+								<div data-key="87" class="key">
+								  <kbd>W</kbd>
+								  <span class="sound">+STR</span>
+								</div>
+								<div data-key="69" class="key">
+								  <kbd>E</kbd>
+								  <span class="sound">+DP</span>
+								</div>
+								<div data-key="72" class="key" style="margin-left: 250px;">
+								  <kbd>H</kbd>
+								  <span class="sound">SALDIR</span>
+								</div></div></div></div>
+
+
+						</div>
+				  <div class="col-sm-6">
+					 
+					<h3 id="rakip"style="color:red">LANETLİ AĞAÇ</h3>
+<img src="source/enemy.jpg" style="width: 250px"></img>
+<!-- <p id="rakipbilgi"></p> -->
+<div id="health-bar" data-total="1000" data-value="1000">
+		<div id="bar">
+			  <div id="hit"></div>
+		</div>
+	  </div>
+	
+				  </div>
+				</div>
+			  </div>
+	</div>
+<div>
+</div>
+<audio data-key="81" src="source/heal2.wav"></audio>
+  <audio data-key="87" src="source/heal2.wav"></audio>
+  <audio data-key="69" src="source/heal2.wav"></audio>
+  <audio data-key="72" src="source/hit1.wav"></audio>
+  <audio data-key="13" src="source/start.wav"></audio>
+  <audio data-key="27" src="source/exit.wav"></audio> 
+  <script src="main.js">
+</script>
+	</body>
+</html>
