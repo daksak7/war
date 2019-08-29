@@ -1,6 +1,7 @@
 			
-var my={hp:10000,str:10,dp:10}
-var enemy={hp:5000,str:14,dp:5}
+var my={hp:Math.floor(Math.random()*10000)+5000,str:Math.floor(Math.random()*50)+5,dp:Math.floor(Math.random()*80)+10}
+var enemy={hp:3000,str:1,dp:5}
+
 var s = 0; //her saldırıda gelen stat
 var ss = 0;//zamanla gelen stat
 var es = 0;//rakibin hasar artış değişkeni
@@ -21,50 +22,52 @@ function attack() { //saldırı kısmı
             window.location.href="youwon.html";
             return;
         }
-        document.getElementById("rakipbilgi").innerHTML = enemy.hp;
-        document.getElementById("rakip").innerHTML = "DEV ÖLÜM ÇİÇEĞİ";
+        document.getElementById("hpinf").innerHTML =Math.floor(my.hp);
+        document.getElementById("strinf").innerHTML =my.str;
+        document.getElementById("dpinf").innerHTML =my.dp;
+
     }}
     function addhp() {  //hp arttırma
-        if (ss+s > 0) {
+        if (s > 0) {
             document.getElementById("notstat").innerHTML = ""
-            var newmyhp = my.hp + 100;
+            my.hp+=100
             s=s-1;
-            my.hp = newmyhp;""
+            
         } else document.getElementById("notstat").innerHTML = "DAĞITILACAK YETERLİ STATÜ PUANI YOK"
-        document.getElementById("hpinf").innerHTML = my.hp;
+        document.getElementById("hpinf").innerHTML =Math.floor(my.hp);
         document.getElementById("strinf").innerHTML = my.str;
         document.getElementById("dpinf").innerHTML = my.dp;
-        document.getElementById("statinfo").innerHTML = ss+s;
-        document.getElementById('bar2').style.width= ((newmyhp / totalmyhp) * 190);
+        document.getElementById("statinfo").innerHTML = s;
+        document.getElementById('bar2').style.width= ((my.hp / totalmyhp) * 190);
         document.getElementById('hit2').style.width= ((enemy.str / totalmyhp) * 190);
     }
     function addstr() {  //str arttırma
-        if (ss+s > 0) {
+        if (s>0) {
             document.getElementById("notstat").innerHTML = ""
-            var newmystr = my.str + 2;
+            my.str+=2;
             s=s-1;
-            my.str = newmystr;
+            
         } else document.getElementById("notstat").innerHTML = "DAĞITILACAK YETERLİ STATÜ PUANI YOK"
-        document.getElementById("hpinf").innerHTML = my.hp;
+        document.getElementById("hpinf").innerHTML =Math.floor(my.hp);
         document.getElementById("strinf").innerHTML = my.str;
         document.getElementById("dpinf").innerHTML = my.dp;
-        document.getElementById("statinfo").innerHTML = ss+s;
+        document.getElementById("statinfo").innerHTML = s;
     }
     function adddp() {     //dp arttırma
-        if (ss+s > 0) {
+        if (s > 0) {
             document.getElementById("notstat").innerHTML = ""
-            var newmydp = my.dp + 2;
+            my.dp+=2;
             s=s-1;
-            my.dp = newmydp;
+            
         } else document.getElementById("notstat").innerHTML = "DAĞITILACAK YETERLİ STATÜ PUANI YOK"
-        document.getElementById("hpinf").innerHTML = my.hp;
+        document.getElementById("hpinf").innerHTML =Math.floor(my.hp);
         document.getElementById("strinf").innerHTML = my.str;
         document.getElementById("dpinf").innerHTML = my.dp;
-        document.getElementById("statinfo").innerHTML = ss+s;
+        document.getElementById("statinfo").innerHTML = s;
     }
     function startgame() {  //oyunu başlatır, diğer fonksiyonları tetikler
-        setInterval("statstackbytime()", 4000);
-        document.getElementById("hpinf").innerHTML = my.hp;
+        setInterval("enemyattacktimebytime()", 100); 
+        document.getElementById("hpinf").innerHTML =Math.floor(my.hp);
         document.getElementById("strinf").innerHTML = my.str;
         document.getElementById("dpinf").innerHTML = my.dp;
         document.getElementById("statinfo").innerHTML = s;
@@ -72,7 +75,7 @@ function attack() { //saldırı kısmı
     }
     function enemyattack() { //oyunun bize saldıracağı kısım
         if (my.hp > 0) {
-            var newmyhp = my.hp - enemy.str;
+            var newmyhp = my.hp - enemy.str/(1+my.dp/33);
             my.hp = newmyhp;
             document.getElementById('bar2').style.width= ((newmyhp / totalmyhp) * 190);
             document.getElementById('hit2').style.width= ((enemy.str / totalmyhp) * 190);
@@ -80,7 +83,7 @@ function attack() { //saldırı kısmı
                 window.location.href="enemywon.html";
                 return;
             }
-            document.getElementById("benbilgi").innerHTML = my.hp;
+  
 
         }
 }
@@ -101,14 +104,11 @@ function statstack() {	 //statü dağıtma üst kısım
         }
     }
 }
-function statstackbytime() {	 //statü dağıtma üst kısım
-    if (ss < 15) {
-        ss++;
-        document.getElementById("statinfo").innerHTML = ss+s;
-        if (ss > 0) {
-            document.getElementById("notstat").innerHTML = ""
-        }
-    }
+function enemyattacktimebytime(){
+    my.hp-=5;
+    document.getElementById("hpinf").innerHTML =Math.floor(my.hp);
+    document.getElementById('bar2').style.width= ((my.hp / totalmyhp) * 190);
+    document.getElementById('hit2').style.width= ((enemy.str / totalmyhp) * 190);
 }
  /* var colors=['#FF0000','#FFA500'];
 function hiteffect(){
@@ -147,6 +147,7 @@ function removeTransition(e) {
     key.classList.add('playing');
     audio.currentTime = 0;
     audio.play();
+    console.log(e.keyCode);
     switch(e.keyCode){
         case 13:
             startgame();
@@ -163,9 +164,10 @@ function removeTransition(e) {
                     case 72:
                         attack();
                         break;
-                          case 27:
+                        case 27:
                                 window.location.href="index.html";
                                 break;
+
     }
   }
 
@@ -173,7 +175,3 @@ function removeTransition(e) {
   keys.forEach(key => key.addEventListener('transitionend', removeTransition));
   window.addEventListener('keydown', playSound);
 
-/*   
-function exitgame(){
-    
-} */

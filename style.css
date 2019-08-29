@@ -144,7 +144,7 @@ table.cinereousTable {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   border: 3px solid #2B4544;
   background-color: #D0E4F5;
-  width: 100%;
+  width: 200px;
   text-align: center;
 }
 table.cinereousTable td, table.cinereousTable th {
@@ -183,3 +183,15 @@ table.cinereousTable tfoot td {
 }
 
 
+
+img:hover {
+  animation: shake 0.5s;
+  
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+}
