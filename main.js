@@ -1,6 +1,6 @@
 			
 var my={hp:Math.floor(Math.random()*10000)+5000,str:Math.floor(Math.random()*50)+5,dp:Math.floor(Math.random()*80)+10}
-var enemy={hp:3000,str:1,dp:5}
+var enemy={hp:Math.floor(Math.random()*7000)+2000,str:Math.floor(Math.random()*50)+5,dp:Math.floor(Math.random()*80)+10}
 
 var s = 0; //her saldırıda gelen stat
 var ss = 0;//zamanla gelen stat
@@ -26,7 +26,11 @@ function attack() { //saldırı kısmı
         document.getElementById("strinf").innerHTML =my.str;
         document.getElementById("dpinf").innerHTML =my.dp;
 
-    }}
+    }
+console.log(enemy.hp)
+console.log(enemy.str)
+console.log(enemy.dp)
+}
     function addhp() {  //hp arttırma
         if (s > 0) {
             document.getElementById("notstat").innerHTML = ""
@@ -105,7 +109,7 @@ function statstack() {	 //statü dağıtma üst kısım
     }
 }
 function enemyattacktimebytime(){
-    my.hp-=5;
+    my.hp-=3;
     document.getElementById("hpinf").innerHTML =Math.floor(my.hp);
     document.getElementById('bar2').style.width= ((my.hp / totalmyhp) * 190);
     document.getElementById('hit2').style.width= ((enemy.str / totalmyhp) * 190);

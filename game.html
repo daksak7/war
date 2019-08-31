@@ -1,7 +1,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <head>
+
 	<link rel="stylesheet" href="style.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<div class="keys">
@@ -15,9 +15,8 @@
 	</div>
 </head>
 
+
 <body background="source/background2.jpg">
-
-
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8">
@@ -116,14 +115,20 @@
 	</div>
 	<div>
 	</div>
-	<audio data-key="81" src="source/heal2.wav"></audio>
-	<audio data-key="87" src="source/heal2.wav"></audio>
-	<audio data-key="69" src="source/heal2.wav"></audio>
-	<audio data-key="72" src="source/hit1.wav"></audio>
+
+	<audio data-key="81" src="source/heal.wav"></audio>
+	<audio data-key="87" src="source/str.mp3"></audio>
+	<audio data-key="69" src="source/dp.wav"></audio>
+	<audio data-key="72" src="source/hit.wav"></audio>
 	<audio data-key="13" src="source/start.wav"></audio>
-    <audio data-key="27" src="source/exit.wav"></audio>
-	<script src="main.js">
-	</script>
+	<audio data-key="27" src="source/exit.wav"></audio> 
+	<div style="visibility:hidden">
+			<audio autoplay loop>
+				<source src="source/backmusic.mp3">
+			</audio> 
+		</div>
 </body>
+<script src="main.js">
+	</script>
 
 </html>

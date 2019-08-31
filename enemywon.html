@@ -1,33 +1,164 @@
 <html>
+	<style>
+		body
+{
+    margin: 0;
+    background-color: #292929;
+    overflow: hidden;
+}
+	nav
+{
+	position: absolute;
+	text-align: center;
+    top: 5%;
+    right:auto;
+    left:auto;
+    width: 500px;
+    display: table;
+    margin: 0 auto;
+    transform: translateY(-50%);
+}
+
+nav a
+{
+    position: relative;
+    width: 33.333%;
+    display: table-cell;
+	text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif,;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: 0.2s ease color;
+}
+
+nav a:before, nav a:after
+{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.2s ease transform;
+}
+
+nav a:before
+{
+    top: 0;
+    left: 10px;
+    width: 6px;
+    height: 6px;
+}
+
+nav a:after
+{
+    top: 5px;
+    left: 18px;
+    width: 4px;
+    height: 4px
+}
+
+nav a:nth-child(1):before
+{
+    background-color: yellow;
+}
+
+nav a:nth-child(1):after
+{
+    background-color: red;
+}
+
+nav a:nth-child(2):before
+{
+    background-color: #00e2ff;
+}
+
+nav a:nth-child(2):after
+{
+    background-color: #89ff00;
+}
+
+nav a:nth-child(3):before
+{
+    background-color: purple;
+}
+
+nav a:nth-child(3):after
+{
+    background-color: palevioletred;
+}
+
+#indicator
+{
+    position: absolute;
+    left: 5%;
+    bottom: 0;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: 0.2s ease left;
+}
+
+nav a:hover
+{
+    color: #fff;
+}
+
+nav a:hover:before, nav a:hover:after
+{
+    transform: scale(1);
+}
+
+nav a:nth-child(1):hover ~ #indicator
+{
+    background: linear-gradient(130deg, yellow, red);
+}
+
+nav a:nth-child(2):hover ~ #indicator
+{
+    left: 34%;
+    background: linear-gradient(130deg, #00e2ff, #89ff00);
+}
+
+nav a:nth-child(3):hover ~ #indicator
+{
+    left: 70%;
+    background: linear-gradient(130deg, purple, palevioletred);
+}
+img {
+  filter: blur(3px);
+}
+</style>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<head>
-		<link rel = "stylesheet"
-		href = "style.css" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-		<nav></nav><a href="index.html">Anasayfa</a>
-	</head>
-	<body background="source/background2.jpg" ; >	
-		<div class="container">
+		<head>
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+				<nav>
+						<a href="index.html">Anasayfa</a>
+						<a href="game.html">Tekrar Oyna</a>
+						<div id="indicator"></div>
+					  </nav>          
+		</head>
+		<div style="visibility:hidden">
+				<audio autoplay loop>
+					<source src="source/youwon.mp3">
+				</audio> 
+			</div>
+    <body background="source/firebackground.gif" ; >
+		<div class="container" style="margin-top: 30px">
 				<div class="row">
-				  <center><div class="col-sm-6">
-						<div class="row">
-								<div class="col-sm-6" style="margin-top: 56px">
-										<img src="source/player.png" style="width: 200px"></img>
-					</div>
-				  </div>
+				  <center><div class="col-sm-12">
+                                        <h3  style="color:red">KAYBETTİN!</h3> 
+										<img src="source/player.png" style="width: 340px"></img>
                         </div>
                     </center>
-                <center>
-				  <div class="col-sm-6">
-					<h3 id="rakip"style="color:red">LANETLİ AĞAÇ</h3>
-<img src="source/enemy.jpg" style="width: 200px"></img>
-<p id="rakipbilgi"></p>	
-                  </div>
-                </center>
+
 				</div>
 			  </div>
-	</div>
-<script src="main.js">
-</script>
-	</body>
+    </div>
+    </body>
+    <script src="main.js">
+        </script>
+
 </html>
